@@ -8,6 +8,7 @@ import { ProductMockService } from './ProductMockService';
 import ProductList from './ProductList';
 import {Grid, Box, Text} from "grommet";
 import ProductDetails from './ProductDetails';
+import ProductDetailsFn from './ProductDetailsFn';
 
 class ProductHome extends Component {
     constructor(props){
@@ -41,6 +42,11 @@ class ProductHome extends Component {
             });
         }
     }//bind the selectedProduct in the constructor
+    updateProduct = (productObj) => {
+        var service=  new ProductMockService(); 
+        service.update(productObj);
+        this.populateItems();
+    }
   render() {
     if(this.state.hasError)
         return (<div>Error</div>);
@@ -58,7 +64,10 @@ class ProductHome extends Component {
                     viewClick={this.selectedProduct}/>
             </Box>
             <Box gridArea='details'>
-                <ProductDetails selectedItem={this.state.selectedItem}/>
+                <ProductDetails 
+                    selectedItem={this.state.selectedItem}
+                    updateProduct={this.updateProduct}/>
+                <ProductDetailsFn/>
             </Box>
         </Grid>
     )

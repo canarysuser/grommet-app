@@ -18,6 +18,13 @@ export class ProductMockService {
             return filteredItems[0];
         return null;
     }
-
+    update(productItem) { 
+        var itemIndex = products.findIndex(c=>c.productId==productItem.productId); 
+        if(itemIndex>-1) {
+            products.splice(itemIndex, 1, productItem);//update
+        } else {
+            products.push(productItem);
+        }
+    }
 
 }
