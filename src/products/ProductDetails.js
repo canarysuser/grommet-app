@@ -30,7 +30,7 @@ class ProductDetails extends Component {
     handleChange = (e) => {
         // var targetElement = e.target.name; 
         // var value = e.target.value;
-        console.log(e.target.name, e.target.value);
+        //console.log(e.target.name, e.target.value);
         // this.state.selectedItem.productName=value;
         this.setState({
             //...this.state,
@@ -43,7 +43,7 @@ class ProductDetails extends Component {
     formSubmit = (e) => {
         e.preventDefault();
         let newObj = { ...this.state.selectedItem };
-        console.log(newObj);
+        //console.log(newObj);
         this.props.updateProduct(newObj);//invoking the mapped parent FN
 
     }

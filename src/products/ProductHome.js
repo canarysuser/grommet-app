@@ -67,7 +67,7 @@ class ProductHome extends Component {
                 <ProductDetails 
                     selectedItem={this.state.selectedItem}
                     updateProduct={this.updateProduct}/>
-                <ProductDetailsFn/>
+                <ProductDetailsFn selectedItem={this.state.selectedItem}/>
             </Box>
         </Grid>
     )
