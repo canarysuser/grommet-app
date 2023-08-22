@@ -5,7 +5,9 @@ import {
     FormField,
     TextInput,
     Button,
-    Text
+    Text,
+    RangeInput,
+    CheckBox
 } from "grommet";
 
 class ProductDetails extends Component {
@@ -51,9 +53,29 @@ class ProductDetails extends Component {
                         value={this.state.selectedItem.productName}
                         onChange={(e)=>this.handleChange(e)}
                     />
-                    <input type="text" name="unitPrice"
+                    {/* <input type="text" name="unitPrice"
                         value={this.state.selectedItem.unitPrice}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}/> */}
+                    <FormField
+                        label='Unit Price'
+                        name='unitPrice'
+                        required
+                        value={this.state.selectedItem.unitPrice}
+                        onChange={this.handleChange}
+                    />
+                    <FormField
+                        label='Stock Level'
+                        name='unitsInStock'
+                        component={RangeInput}
+                        value={this.state.selectedItem.unitsInStock}
+                        onChange={this.handleChange}
+                    />
+                    <Text size='small'>{this.state.selectedItem.unitsInStock}</Text>
+                    <CheckBox checked={this.state.selectedItem.discontinued}
+                        label='Discontinued? ' 
+                        value={this.state.selectedItem.discontinued}
+                        onChange={this.handleChange}
+                        name='discontinued'/>
                 </Form>
 
             </Box>

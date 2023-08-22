@@ -9,6 +9,7 @@ export default class ProductModel {
         this.productId=productId;
         this.productName=productName;
         this.unitPrice=unitPrice;
-        this.unitsInStock=unitsInStock
+        this.unitsInStock=unitsInStock;
+        this.discontinued=false;
     }
 }
