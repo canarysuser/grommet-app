@@ -4,12 +4,13 @@ export default class ProductModel {
         productId,
         productName,
         unitPrice,
-        unitsInStock
+        unitsInStock,
+        discontinued=false
     ) { 
         this.productId=productId;
         this.productName=productName;
         this.unitPrice=unitPrice;
         this.unitsInStock=unitsInStock;
-        this.discontinued=false;
+        this.discontinued=discontinued;
     }
 }

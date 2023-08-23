@@ -1,16 +1,11 @@
 
 import { Grommet, Text, Header, Box } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import ProductHome from './products/ProductHome';
-import { useTranslation } from 'react-i18next';
 import PageHeader from './ui/PageHeader';
 import { Routes,Route } from 'react-router';
-import Home from './ui/Home';
-import NotFound from './ui/NotFound';
-import RoutedList from './routedproducts/RoutedList';
-import RoutedCreate from './routedproducts/RoutedCreate';
-import RoutedEdit from './routedproducts/RoutedEdit';
-import RoutedView from './routedproducts/RoutedView';
+
+import routes from "./ui/AppRouting";
+
 const customTheme=  {
 	global: {
     colors: {
@@ -39,14 +34,11 @@ function App() {
       pad='medium'>
         {/* <Text margin='medium' size='xxlarge'>Welcome To Grommet App</Text> */}
         <Routes>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/products' element={<ProductHome/>}/>
-          <Route path='/routedList' element={<RoutedList/>}/>
-          <Route path='/routed/create' element={<RoutedCreate/>}/>
-          <Route path='/routed/edit/:id' element={<RoutedEdit/>}/>
-          <Route path='/routed/view/:id' element={<RoutedView/>}/>
-          {/* http://localhost/something */}
-          <Route path='*' element={<NotFound/>}/>
+          {
+            routes.map((value, index)=>(
+              <Route key={index} path={value.path} element={value.element}/>
+            ))
+          }
         </Routes>
         
       </Box>
