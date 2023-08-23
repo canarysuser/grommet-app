@@ -7,6 +7,7 @@ import PageHeader from './ui/PageHeader';
 import { Routes,Route } from 'react-router';
 import Home from './ui/Home';
 import NotFound from './ui/NotFound';
+import RoutedList from './routedproducts/RoutedList';
 const customTheme=  {
 	global: {
     colors: {
@@ -33,7 +34,14 @@ function App() {
       direction='row'
       border={{color:'blue', size:'large'}}
       pad='medium'>
-        <Text margin='medium' size='xxlarge'>Welcome To Grommet App</Text>
+        {/* <Text margin='medium' size='xxlarge'>Welcome To Grommet App</Text> */}
+        <Routes>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/products' element={<ProductHome/>}/>
+          <Route path='/routedList' element={<RoutedList/>}/>
+          {/* http://localhost/something */}
+          <Route path='*' element={<NotFound/>}/>
+        </Routes>
         
       </Box>
    </Grommet>
