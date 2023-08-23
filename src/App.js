@@ -8,6 +8,9 @@ import { Routes,Route } from 'react-router';
 import Home from './ui/Home';
 import NotFound from './ui/NotFound';
 import RoutedList from './routedproducts/RoutedList';
+import RoutedCreate from './routedproducts/RoutedCreate';
+import RoutedEdit from './routedproducts/RoutedEdit';
+import RoutedView from './routedproducts/RoutedView';
 const customTheme=  {
 	global: {
     colors: {
@@ -39,6 +42,9 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path='/products' element={<ProductHome/>}/>
           <Route path='/routedList' element={<RoutedList/>}/>
+          <Route path='/routed/create' element={<RoutedCreate/>}/>
+          <Route path='/routed/edit/:id' element={<RoutedEdit/>}/>
+          <Route path='/routed/view/:id' element={<RoutedView/>}/>
           {/* http://localhost/something */}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

@@ -15,11 +15,14 @@ import {
     Nav
     
 } from "grommet";
+import { Navigate } from 'react-router';
 
 
 function RoutedList() {
     var service = new ProductMockService();
     const [list, setList] = useState([]);
+    const [path, setPath] = useState('');
+    
     useEffect(() => {
         if (list.length == 0) {
             setList(service.getAll());
@@ -27,12 +30,16 @@ function RoutedList() {
     })
 
     const viewClick = (id) =>{
-
+        let route = `/routed/view/${id}`; 
+        setPath(route);
     }
     const editClick = (id) =>{ 
-
+        let route = `/routed/edit/${id}`; 
+        setPath(route);        
     }
 
+    if(path.length>0) 
+        return <Navigate to={path} replace/>
 
     if (list.length == 0) {
         return <Heading level='1' color='red' textAlign='center'>No items found.</Heading>
@@ -46,14 +53,14 @@ function RoutedList() {
                 textAlign='center'>
                 Product List
             </Heading>
-            <Box>
+            <Box direction='row' >
                 <Text
-                    size='small'
+                    size='large'
                     style={{ fontWeight: 'bold', margin: '10px' }}>
                     Products list description or subtitle
                 </Text>
-                <Nav>
-                    <Anchor href='/routed/create'>Create New</Anchor>
+                <Nav alignContent='right'>
+                    <Anchor  href='/routed/create'>Create New</Anchor>
                 </Nav>
             </Box>
 
