@@ -7,7 +7,7 @@ import {
     TableRow, 
     TableCell,
     TableBody,
-    Button
+    Button,Text
 } from "grommet";
 
 function ProductList(props) {
@@ -22,8 +22,10 @@ function ProductList(props) {
             size='xlarge' 
             color='red'
             textAlign='center'>
-                Product List
+                {props.title}
+
         </Heading>
+        <Text size='small' style={{fontWeight:'bold', margin:'10px'}}  >{props.subtitle}</Text>
         <Table>
             <TableHeader>
                 <TableRow>

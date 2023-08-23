@@ -60,7 +60,9 @@ class ProductHome extends Component {
         rows={['fill']}
         gap='small'>
             <Box gridArea='list'>
-                <ProductList {...this.state}
+                <ProductList {...this.state} 
+                title='Products List'
+                subtitle='Product List sub title'
                     viewClick={this.selectedProduct}/>
             </Box>
             <Box gridArea='details'>
@@ -74,4 +76,4 @@ class ProductHome extends Component {
   }
 }
 
-export default ProductHome
+export default ProductHome;

@@ -2,6 +2,11 @@
 import { Grommet, Text, Header, Box } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import ProductHome from './products/ProductHome';
+import { useTranslation } from 'react-i18next';
+import PageHeader from './ui/PageHeader';
+import { Routes,Route } from 'react-router';
+import Home from './ui/Home';
+import NotFound from './ui/NotFound';
 const customTheme=  {
 	global: {
     colors: {
@@ -15,17 +20,21 @@ const customTheme=  {
 	}
 };
 function App() {
+  
+
   return (
    <Grommet theme={hpe} full>
-    <AppBar>
+    {/* <AppBar >
       <Text size='large'>Grommet App</Text>
-    </AppBar>
+      
+    </AppBar> */}
+    <PageHeader />
     <Box 
       direction='row'
       border={{color:'blue', size:'large'}}
       pad='medium'>
-        {/* <Text margin='medium' size='xxlarge'>Welcome To Grommet App</Text> */}
-        <ProductHome/>
+        <Text margin='medium' size='xxlarge'>Welcome To Grommet App</Text>
+        
       </Box>
    </Grommet>
   );
