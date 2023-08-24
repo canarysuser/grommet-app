@@ -3,6 +3,7 @@ import RoutedCreate from "../routedproducts/RoutedCreate";
 import RoutedEdit from "../routedproducts/RoutedEdit";
 import RoutedList from "../routedproducts/RoutedList";
 import RoutedView from "../routedproducts/RoutedView";
+import ContextAPI from "./ContextAPI";
 import Home from "./Home";
 import NotFound from "./NotFound";
 import UsingReducer from "./UsingReducer";
@@ -35,6 +36,10 @@ const routes = [
     {
         path:'/reducers',
         element:<UsingReducer />
+    },
+    {
+        path:'/context',
+        element:<ContextAPI />
     },
     {
         path:'*',

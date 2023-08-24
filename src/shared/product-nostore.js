@@ -1,7 +1,6 @@
 //FILE: shared/product-nostore.js 
 import { getAllProducts } from "../routedproducts/ProductAxiosService"
 
-
 export const productInitialState = {
     items: [], 
     currentItem: {}, 
@@ -31,7 +30,6 @@ export const productReducer = (state, action)=> {
             return {...state, hasError:true, error: action.payload.error}
         default: 
             return productInitialState;
-
     }
 }
 
