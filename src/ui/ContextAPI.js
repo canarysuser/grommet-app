@@ -1,5 +1,6 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { Box, TextInput, Button, Heading, Paragraph, Text } from "grommet"
+import { useTranslation } from 'react-i18next';
 
 //initial State 
 export const initialState = { name: '', email: '', location: '' }
@@ -59,10 +60,12 @@ export function LocationComponent() {
 }
 export default function ContextAPI() {
     const [state, dispatch] = useReducer(personReducer, initialState);
+    const {t} = useTranslation();
 
     return (
         <Box align='center' gap='small' margin='large' flex>
-            <Heading level='2' color='green'>Context Operations</Heading>
+            <Heading level='2' color='green'>{t('contextAPIPage.title')}</Heading>
+            <Heading level='6' >{t('contextAPIPage.subTitle')}</Heading>
             <PersonContext.Provider value={{ state, dispatch }}>
                 <NameComponent />
                 {state.name && <EmailComponent />}

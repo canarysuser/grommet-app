@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from 'history';
 import { BrowserRouter } from 'react-router-dom';
 
+import './i18n';
+
 const hist = createBrowserHistory(); 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
