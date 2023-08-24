@@ -14,11 +14,15 @@ import {
     Anchor,
     Nav,
     Notification,
-    Paragraph
+    Paragraph,
+    DataTable,
+    Pagination
 
 } from "grommet";
 import { Navigate } from 'react-router';
 import ProductAPIService from './ProductAPIService';
+import API, {productUrl} from "./AxiosInstance";
+import { getAllProducts } from './ProductAxiosService';
 
 
 function RoutedList() {
@@ -34,9 +38,13 @@ function RoutedList() {
             if (list.length == 0) {
                 //setList(service.getAll());
                 try { 
-                    var items = await service.getAll();
-                    setList(items);
-                    setError(null);
+                    //var items = await service.getAll();
+                    //setList(items);
+                    //setError(null);
+                    //var response = await API.get(productUrl);
+                    var data = await getAllProducts()
+                    setList(data);
+
                 } catch (e) { 
                     setVisible(true);
                     setError(e);
@@ -99,8 +107,45 @@ function RoutedList() {
                     <Anchor href='/routed/create'>Create New</Anchor>
                 </Nav>
             </Box>
+            <Pagination numberItems={10} 
+                            numberEdgePages={1}
+                            numberMiddlePages={5}
+                            step={10} /> 
+            <DataTable primary alignSelf='stretch' background='light-2'
+                fill='horizontal' 
+                paginate={Pagination} 
+                columns={[
+                    {
+                        property:'productName',
+                        header:<Text>Name</Text>,
+                        primary:true, 
+                        size:'large'
+                    },
+                    {
+                        property: 'unitPrice',
+                        header:<Text>Price</Text>,
+                    },
+                    {
+                        property:'operations',
+                        header:'',
+                        render:datum=>(
+                            <Button primary label='View'
+                                onClick={(e) => viewClick(datum.productId)} />
+                        )
+                    },
+                    {
+                        property:'operations2',
+                        header:'',
+                        render: datum=>(
+                            <Button secondary label='Edit'
+                                onClick={(e) => editClick(datum.productId)} />    
+                           
+                        )
+                    }
+                ]} data={list}/>
 
-            <Table>
+
+            {/* <Table>
                 <TableHeader>
                     <TableRow>
                         <TableCell scope='col' size='xxlarge'>Product Name</TableCell>
@@ -129,7 +174,7 @@ function RoutedList() {
                         ))
                     }
                 </TableBody>
-            </Table>
+            </Table> */}
         </Box>
 
     )

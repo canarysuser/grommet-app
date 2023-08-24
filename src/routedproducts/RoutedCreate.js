@@ -4,6 +4,7 @@ import { Box, Text, Form, FormField, CheckBox, Button, RangeInput } from 'gromme
 import { Link } from 'react-router-dom';
 import ProductAPIService from './ProductAPIService';
 import ProductModel from '../products/ProductModel';
+import { createProductInDb } from './ProductAxiosService';
 
 export default function RoutedCreate() {
     const [model, setModel] = useState(new ProductModel(0,'',0,0));
@@ -21,8 +22,10 @@ export default function RoutedCreate() {
     const submitForm = async (e)=>{
         e.preventDefault(); 
         //place the API call for updating 
-        let service = new ProductAPIService(); 
-        await service.createInDb(model);
+        //let service = new ProductAPIService(); 
+        //await service.createInDb(model);
+        
+        let response = await createProductInDb(model);
         setCanRedirect(true);
     }
     if(canRedirect){

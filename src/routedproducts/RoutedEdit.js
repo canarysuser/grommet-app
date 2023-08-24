@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router';
 import { Box, Text, Form, FormField, CheckBox, Button, RangeInput } from 'grommet';
 import { Link } from 'react-router-dom';
 import ProductAPIService from './ProductAPIService';
+import { updateProductToDb } from './ProductAxiosService';
 
 
 
@@ -31,8 +32,9 @@ export default function RoutedEdit() {
     const submitForm = async (e)=>{
         e.preventDefault(); 
         //place the API call for updating 
-        let service = new ProductAPIService(); 
-        await service.updateToDB(model);
+        // let service = new ProductAPIService(); 
+        // await service.updateToDB(model);
+        await updateProductToDb(model);
         setCanRedirect(true);
     }
     if(canRedirect){

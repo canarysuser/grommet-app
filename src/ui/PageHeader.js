@@ -1,5 +1,5 @@
 import { Box, Anchor, Nav, Header, Text, Select } from 'grommet'
-import { AppsRounded, Home, List } from 'grommet-icons'
+import { AppsRounded, Home, List, Filter } from 'grommet-icons'
 import React from 'react'
 
 function PageHeader() {
@@ -12,6 +12,7 @@ function PageHeader() {
         <Anchor href="/home" label='Home' icon={<Home />} />
         <Anchor href="/products" label='Products' icon={<List />} />
         <Anchor href="/routedList" label='Routed List' icon={<AppsRounded />} />
+        <Anchor href="/reducers" label='Reducers' icon={<Filter />} />
       </Nav>
     </Header>
   )

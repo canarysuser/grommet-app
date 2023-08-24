@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import { json, useParams } from 'react-router'
 import ProductAPIService from './ProductAPIService';
+import { getProductDetails } from './ProductAxiosService';
 
 
 export default function RoutedView() {
@@ -10,12 +11,14 @@ export default function RoutedView() {
     const [model, setModel] = useState();
 
     useEffect(() => {
-        function fetchData() {
+        async function fetchData() {
             if (!model) {
-                var service = new ProductAPIService();
-                service.getDetails(id)
-                    .then((response) => response.json())
-                    .then((data) => setModel(data));
+                // var service = new ProductAPIService();
+                // service.getDetails(id)
+                //     .then((response) => response.json())
+                //     .then((data) => setModel(data));
+                var data = await getProductDetails(id);
+                setModel(data);
             }
         }
         fetchData();

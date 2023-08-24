@@ -5,6 +5,7 @@ import RoutedList from "../routedproducts/RoutedList";
 import RoutedView from "../routedproducts/RoutedView";
 import Home from "./Home";
 import NotFound from "./NotFound";
+import UsingReducer from "./UsingReducer";
 
 const routes = [
     {
@@ -30,6 +31,10 @@ const routes = [
     {
         path:'/routed/edit/:id',
         element:<RoutedEdit />
+    },
+    {
+        path:'/reducers',
+        element:<UsingReducer />
     },
     {
         path:'*',
